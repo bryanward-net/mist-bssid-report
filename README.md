@@ -84,3 +84,13 @@ To save the report to a file, use your operating system's output redirection.
 `mist-bssid-report.py | Out-File -FilePath .\myreport.json`
 
 `mist-bssid-report.py --csv | Out-File -FilePath .\myreport.csv`
+
+
+
+## Searching
+
+To search the report for a BSSID, you can use jq or grep as follows:
+
+`jq '.["5c5b35111111"]' myreport.json`
+
+`grep "5c5b35111111" myreport.csv`

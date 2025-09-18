@@ -61,7 +61,7 @@ parsergroup_format.add_argument(
     "--json",
     help="Output as JSON (default).",
     dest="json",
-    default=True,
+    default=False,
     action="store_true",
 )
 parsergroup_format.add_argument(
@@ -92,6 +92,9 @@ elif os.environ.get("MIST_TOKEN") is not None:
     MIST_TOKEN = os.environ.get("MIST_TOKEN")
 else:
     raise Exception("MIST TOKEN is not set!")
+
+if not args.csv:
+    args.json = True
 
 # Create Mist API Session
 mistapisession = mistapi.APISession(apitoken=MIST_TOKEN, host=MIST_APIURL)
